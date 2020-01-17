@@ -2,8 +2,8 @@ class Array
   def my_map(&block)
     output = []
 
-    self.each do |i|
-      output << (block.call(i))
+    each do |i|
+      output << block.call(i)
     end
 
     output
@@ -12,8 +12,8 @@ class Array
   def my_map2
     output = []
 
-    self.each do |i|
-      output << (yield(i))
+    each do |i|
+      output << yield(i)
     end
 
     output
@@ -21,5 +21,5 @@ class Array
 end
 
 arr = [1, 2, 3, 4]
-p arr.my_map2 { |i| i + 2 }
-p arr.my_map { |i| i * 2 }
+p(arr.my_map2 { |i| i + 2 })
+p(arr.my_map { |i| i * 2 })
